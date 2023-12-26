@@ -4,14 +4,15 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
-public class IOUEntity {
-    final UUID id;
+public class IOU {
+    private final UUID id;
     String borrower;
     String lender;
     BigDecimal amount;
     Instant dateTime;
 
     public IOU(String borrower, String lender, BigDecimal amount, Instant dateTime) {
+        this.id = UUID.randomUUID();
         this.borrower=borrower;
         this.lender=lender;
         this.amount=amount;
@@ -19,7 +20,7 @@ public class IOUEntity {
 
     }
 
-    public IOUEntity(UUID id) {
+    public IOU(UUID id) {
         this.id = id;
     }
 }
