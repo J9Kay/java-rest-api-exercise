@@ -1,5 +1,6 @@
 package com.cbfacademy.restapiexercise.ious;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,6 +11,7 @@ import com.cbfacademy.restapiexercise.core.Repository;
  * It provides methods for retrieving, saving, updating, and deleting IOU records.
  */
 public interface IOURepository extends Repository<IOU, UUID> {
+    final List<IOU> ious = new ArrayList<>();
 
     /**
      * Searches for IOUs where the borrower's name matches the provided string.
@@ -26,5 +28,11 @@ public interface IOURepository extends Repository<IOU, UUID> {
      * @return a list of IOUs that match the lender's name
      */
     List<IOU> searchByLender(String name);
+    
+
+    @Override
+    public List<IOU> retrieveAll() {
+        return new ArrayList<>(ious); // Return a copy of the list 
+    }
 
 }
