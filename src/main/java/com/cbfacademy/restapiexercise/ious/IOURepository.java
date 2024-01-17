@@ -11,7 +11,7 @@ import com.cbfacademy.restapiexercise.core.Repository;
  * It provides methods for retrieving, saving, updating, and deleting IOU records.
  */
 public interface IOURepository extends Repository<IOU, UUID> {
-    final List<IOU> ious = new ArrayList<>();
+
 
     /**
      * Searches for IOUs where the borrower's name matches the provided string.
@@ -30,9 +30,5 @@ public interface IOURepository extends Repository<IOU, UUID> {
     List<IOU> searchByLender(String name);
     
 
-    @Override
-    public List<IOU> retrieveAll() {
-        return new ArrayList<>(ious); // Return a copy of the list 
-    }
 
 }
